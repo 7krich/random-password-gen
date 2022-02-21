@@ -25,6 +25,12 @@ function generatePassword() {
     window.alert('You must choose a number between 5 and 128.');
   }
 
+  if (!/^\d+$/.test(windowLength)) {
+    window.alert('You typed in a letter. You must choose a number between 5 and 128.');
+    return generatePassword(); 
+  }
+  console.log(/^\d+$/.test(windowLength));
+
   if (Number(windowLength) < 5 || Number(windowLength) > 128) {
     return generatePassword();
   }
@@ -54,7 +60,7 @@ function generatePassword() {
   var promptNumber = window.confirm('Do you want to include numbers in your password?');
 
   if (promptNumber) {
-    window.alert('Numbers letters will be included in your password!');
+    window.alert('Numbers will be included in your password!');
   }
 
   if (!promptNumber) {
@@ -65,7 +71,7 @@ function generatePassword() {
   var promptSpecial = window.confirm('Do you want to include special characters in your password?');
 
   if (promptSpecial) {
-    window.alert('Special characters letters will be included in your password!');
+    window.alert('Special characters will be included in your password!');
   }
 
   if (!promptSpecial) {
