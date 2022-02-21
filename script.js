@@ -23,7 +23,10 @@ function generatePassword() {
 
   if (Number(windowLength) < 5 || Number(windowLength) > 128) {
     window.alert('You must choose a number between 5 and 128.');
-    generatePassword();
+  }
+
+  if (Number(windowLength) < 5 || Number(windowLength) > 128) {
+    return generatePassword();
   }
 
   var promptLowercase = window.confirm('Do you want to include lowercase letters in your password?');
@@ -69,12 +72,11 @@ function generatePassword() {
     window.alert('Special Characters will not be included in your password!');
     randomCharacters = randomCharacters.replaceAll(/[^A-Za-z0-9]/g, '');
   }
-
-
-
   
   console.log(randomCharacters);
   console.log(promptLowercase);
+  console.log(promptNumber);
+  console.log(promptSpecial);
   for (let i = 0; i < Number(windowLength); i ++) {
     randomPassword += randomCharacters.charAt(Math.floor(Math.random() * randomCharacters.length
     ))
